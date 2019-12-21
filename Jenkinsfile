@@ -1,7 +1,5 @@
 
 node ('abhishek-pc'){
-    stages {
-
         stage('build') {
             steps {
                 docker { image 'node:6.3' }
@@ -14,5 +12,5 @@ node ('abhishek-pc'){
                 sh 'npm --version'
             }
         }
-    }
+
 }
