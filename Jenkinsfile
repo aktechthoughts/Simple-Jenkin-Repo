@@ -20,7 +20,7 @@ pipeline {
 node('docker') {
     docker.withServer('tcp://192.168.178.28:2375') {
         docker.image('node:7-alpine').inside {
-            sh 'node --version'
+            sh 'node --version  '
         }
     }
 }
