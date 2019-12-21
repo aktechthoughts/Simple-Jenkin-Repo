@@ -3,10 +3,13 @@ pipeline {
         node { label 'abhishek-pc' }
     }
     stages {
-        stage('Build') {
+        stage('create-agent'){
             agent {
                 docker { image 'node:7-alpine' }
-            }
+            }    
+        }
+
+        stage('Build') {
             steps {
                 sh 'node --version'
             }
