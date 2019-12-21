@@ -1,27 +1,13 @@
-/*
 pipeline {
     agent {
         node { label 'abhishek-pc' }
     }
     stages {
-        stage('create-agent'){
-            agent {
-                docker { image 'node:7-alpine' }
-            }    
-
+        stage('Test') {
             steps {
-                sh 'node --version'
+                docker { image 'node:7-alpine' }
+                sh 'echo HelloWorld'
             }
         }
     }
 }
-*/
-
-node('docker') {
-    docker.withServer('tcp://192.168.178.28:2375') {
-        docker.image('node:7-alpine').inside {
-            sh 'node --version  '
-        }
-    }
-}
- 
