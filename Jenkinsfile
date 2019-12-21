@@ -7,9 +7,7 @@ pipeline {
             agent {
                 docker { image 'node:7-alpine' }
             }    
-        }
 
-        stage('Build') {
             steps {
                 sh 'node --version'
             }
