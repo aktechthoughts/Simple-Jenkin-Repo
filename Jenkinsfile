@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                docker { image 'node:7-alpine' }
-                sh 'echo HelloWorld'
+               
+                sh 'echo $HOSTNAME'
             }
         }
     }
