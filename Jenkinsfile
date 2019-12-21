@@ -17,6 +17,6 @@ node ('abhishek-pc') {
     git 'https://github.com/aktechthoughts/Simple-Jenkin-Repo.git'
   }
   stage('Compile') { // Compile and do unit testing
-    sh "docker ps"
+    docker 'node:6-alpine'
   }
 }
