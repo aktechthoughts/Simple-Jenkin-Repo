@@ -4,10 +4,9 @@ pipeline {
         stage('Example Build') {
             agent { 
                 node { label 'abhishek-pc' } 
-               
             } 
             steps {
-                echo 'Hello, Maven'
+                sh 'docker image pull  node:6-alpine'
                
             }
         }
