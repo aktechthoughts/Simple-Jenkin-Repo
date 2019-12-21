@@ -1,22 +1,13 @@
-/*pipeline {
-    agent {
-        node { label 'abhishek-pc' }
-    }
-    stages {
-        stage('Test') {
-            steps {
-               
-                sh 'echo $HOSTNAME'
+pipeline {
+    node ('abhishek-pc'){
+        agent { docker { image 'node:6.3' } }
+        stages {
+            stage('build') {
+                steps {
+                    sh 'npm --version'
+                }
             }
         }
     }
-}*/
- 
-node ('abhishek-pc') {
-  stage('Source') { // Get code
-    git 'https://github.com/aktechthoughts/Simple-Jenkin-Repo.git'
-  }
-  stage('Compile') { // Compile and do unit testing
-    docker 'node:6-alpine'
-  }
 }
+  
