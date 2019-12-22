@@ -3,10 +3,7 @@ pipeline {
     stages {
          stage('Build') {
             steps {
-                docker {
-                    image 'node:6-alpine'
-                    args '-p 3000:3000'
-                }
+                docker image 'node:6-alpine' 
                 sh 'npm install'
                 sh 'npm -version'
             }
