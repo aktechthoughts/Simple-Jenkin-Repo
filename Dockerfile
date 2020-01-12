@@ -22,5 +22,5 @@ COPY . .
 EXPOSE 3000
 CMD ["node", "public/index.html"]
 
-RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
-USER nodejs
+#RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
+#USER nodejs
