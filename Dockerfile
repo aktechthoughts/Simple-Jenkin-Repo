@@ -15,10 +15,8 @@ COPY package.json .
 
 # Install all npm dependencies
 # Cleanup
-RUN npm install --silent --production \
-    && apk del build-dependencies \
-    && rm -rf /var/cache/apk/*
-
+RUN npm install --silent --production 
+   
 # Copy entire app over
 COPY . .
 EXPOSE 3000
