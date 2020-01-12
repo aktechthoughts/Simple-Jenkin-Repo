@@ -1,15 +1,10 @@
 pipeline {
     agent { dockerfile true }
-    environment { 
-        CI = 'true'
-        HOME = '.'
-    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                
+                sh 'node --version'
             }
         }
- 
     }
 }
