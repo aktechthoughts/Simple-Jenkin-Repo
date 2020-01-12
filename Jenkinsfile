@@ -4,5 +4,12 @@ pipeline {
         CI = 'true'
         HOME = '.'
     }
-   
+    stages {
+        stage('Build') {
+            steps {
+                
+            }
+        }
+ 
+    }
 }
