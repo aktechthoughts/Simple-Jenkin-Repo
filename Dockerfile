@@ -1,26 +1,9 @@
-FROM node:7.8-alpine
-LABEL maintainer "Abhishek Kumar<abhishek_ku@yahoo.com>"
-
-# Install all build dependencies
-# Add bash for debugging purposes
-RUN apk update \
-    && apk add  gcc \
-        wget \
-        git \
-    && apk add \
-        bash
-
-WORKDIR  /home/nodejs/app
-COPY package.json .
-
-# Install all npm dependencies
-# Cleanup
-RUN npm install --silent --production 
-   
-# Copy entire app over
-COPY . .
-EXPOSE 3000
-CMD ["node", "public/index.html"]
-
-#RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
-#USER nodejs
+FROM node:10-alpine
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /home/node/app
+COPY package*.json ./
+USER node
+RUN npm install
+COPY --chown=node:node . .
+EXPOSE 8080
+CMD [ "node", "app.js" ]
