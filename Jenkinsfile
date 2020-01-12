@@ -5,6 +5,11 @@ pipeline {
         HOME = '.'
     }
     stages {
+        stage('Build') {
+            steps {
+                sh 'chmod +x ./scripts/*'
+            }
+        }
         stage('Test') {
             steps {
                 sh './scripts/test.sh'
