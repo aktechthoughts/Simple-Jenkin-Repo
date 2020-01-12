@@ -1,15 +1,10 @@
 pipeline {
-    agent none
+    agent { dockerfile true }
     stages {
-        stage('Build') {
-            agent {                
-                docker {
-                    image 'node:6-alpine'
-                    args '-p 3000:3000'
-                }
-            }
+        stage('Test') {
             steps {
-                sh 'npm -version'
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
     }
