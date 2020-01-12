@@ -3,6 +3,13 @@ LABEL maintainer "Abhishek Kumar<abhishek_ku@yahoo.com>"
 
 # Install all build dependencies
 # Add bash for debugging purposes
+RUN apk update \
+    && apk add  gcc \
+        wget \
+        git \
+    && apk add \
+        bash
+
 WORKDIR  /home/nodejs/app
 COPY package.json .
 
